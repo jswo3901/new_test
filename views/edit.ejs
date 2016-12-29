@@ -1,0 +1,12 @@
+<%-layout('./layouts/layout')%>
+<%- stylesheet('/css/main.css') %>
+<%-partial('./partials/list')%>
+<form action="/menu/<%=onedata._id%>?_method=put" method="post">
+  <div class="form-group">
+    <input type="text" name="title" class="form-control" value="<%=onedata.title%>">
+  </div>
+  <div class="form-group">
+    <textarea type="text" name="content" class="form-control" ><%=onedata.content%> </textarea>
+  </div>
+  <button type="submit" class="btn btn-default">수정</button>
+</form>

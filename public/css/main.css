@@ -1,0 +1,12 @@
+article {
+    text-align: center;
+}
+article ul {
+    list-style: none;
+}
+#content {
+    height: 30em;
+}
+.signup{
+    color:black
+}

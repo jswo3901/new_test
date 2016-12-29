@@ -1,0 +1,13 @@
+<%-layout('./layouts/layout')%>
+<%-partial('./partials/list')%>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title"><%=onedata.title%></h3>
+    </div>
+    <div class="panel-body">
+        <%=onedata.content%>
+    </div>
+</div>
+    <a class="btn btn-default" href="/menu" role="button">목록</a>
+    <a class="btn btn-default" href="/menu/edit/<%=onedata._id %>" role="button">수정</a>
+    <form action="/menu/<%=onedata._id %>?_method=delete" method="post"><a href ="#" class="btn btn-default" onclick="confirm('삭제 실화냐?')?this.parentElement.submit():null;">delete</a></form>

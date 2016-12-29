@@ -1,0 +1,31 @@
+<%-layout('./layouts/layout')%>
+<%- stylesheet('/css/main.css') %>
+<%-partial('./partials/list')%>
+
+<div class="container">
+
+    <div class="page-header text-center">
+        <h1><span class="fa fa-anchor"></span> Profile Page</h1>
+        <h1 style="color: red;">이 화면은 로그인 안하면 볼 수가 없음, 로그아웃 하고 url에 localhost:3000/profile치고 들어오면 접속안됨. 메인페이지로 감</h1>
+        <a href="/logout" class="btn btn-default btn-sm">Logout</a>
+    </div>
+
+    <div class="row">
+
+        <!-- LOCAL INFORMATION -->
+        <div class="col-sm-6">
+            <div class="well">
+                <h3 class="fa fa-user"> Local</h3>
+
+                <p>
+
+                    <strong>email</strong>: <%= user.local.email %><br>
+                    <strong>해쉬처리된 password</strong>: <%= user.local.password %>
+                </p>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,44 @@
+
+
+<!-- views/signup.ejs -->
+<%-layout('./layouts/layout')%>
+<%- stylesheet('/css/main.css') %>
+<%-partial('./partials/list')%>
+
+<div class="container">
+
+    <div class="col-sm-6 col-sm-offset-3">
+        <h1 class="fa fa-sign-in"> Signup</h1>
+
+        <% if (message.length > 0) { %>
+        <div class="alert alert-danger"><%= message %></div>
+        <% } %>
+        <!--  FORM 시작 -->
+        <form action="/signup" method="post">
+
+            <div class="form-group">
+                <label>name</label>
+                <input type="text" class="form-control" name="name">
+            </div>
+
+            <div class="form-group">
+                <label>Email</label>
+                <input type="text" class="form-control" name="email">
+            </div>
+
+            <div class="form-group">
+                <label>Password</label>
+                <input type="password" class="form-control" name="password">
+            </div>
+
+            <button type="submit" class="btn btn-warning btn-lg">Signup</button>
+        </form>
+
+        <hr>
+
+        <p>아이디 찾기? <a href="#">ㅇㅇ아이디</a></p>
+        <p>비밀번호 찾기?<a href="#">ㅇㅇ비밀번호</a>.</p>
+
+    </div>
+
+</div>

@@ -1,0 +1,14 @@
+<%-layout('./layouts/layout')%>
+<%-partial('./partials/list')%>
+<table class="table table-striped">
+    <tr>
+        <th>제목</th>
+    <tr>
+    <% alldata.forEach(function(menulist) { %>
+        <td><a href="/menu/<%=menulist.id %>"><%=menulist.title %> </a></td>
+    </tr>
+    <% }) %>
+</table>
+<div>
+<a class="btn btn-default" href="/new" role="button">새 글</a>
+</div>
