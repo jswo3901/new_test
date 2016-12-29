@@ -45,10 +45,9 @@ module.exports = function(passport) {
                 if (user) {
                     return done(null, false, req.flash('signupMessage', 'That email is already taken.'));
                 } else {
-                    //이메일 쓰고있는거 없으면 만들어줌.
+                    //이미 사용중인 이메일 아니면 가입시켜줌.
 
                     var newUser            = new User();
-
                     newUser.local.email    = email;
                     newUser.local.password = newUser.generateHash(password); // 비밀번호는 해쉬생성
 

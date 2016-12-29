@@ -35,6 +35,11 @@ app.use(flash()); //세션에 저장되는 flash메시지를 위해서 connect-f
 
 require('./config/passport')(passport);
 require('./app/routes.js')(app, passport);
+//이거 두개 밑으로는 달라진거 없음.  passport랑 routes.js 두개 빼서 따로작성 추가함. config폴더랑 models폴더 만들었음.
+// passport는 회원가입 로그인 구글,페북연동 등등 해주는 핵심 패키지
+//config폴더는 poassport설정 파일 예를들면        이미 가입한 이메일 거른다거나, 처음가입하는 메일은 가입시켜주는 코드
+
+
 
 
 //DB connect
@@ -55,11 +60,6 @@ var bbs  = mongoose.Schema({
 });
 
 var menubbs = mongoose.model("menubbs", bbs);
-
-
-
-
-
 
 
 
@@ -105,45 +105,6 @@ app.delete("/menu/:id", function(req, res){
         res.redirect("/menu");
     });
 });
-
-//user시작
-
-//로그인
-app.get('/signin',function(req, res){
-    res.render('signin',{ message: req.flash('loginMessage')}); //여기서 flash사용
-});
-
-//회원가입
-app.get('/signup',function(req, res){
-    res.render('signup',{ message: req.flash('signupMessage')});
-});
-
-//로그인 했을 때 만 보이는 '프로필'
-app.get('/profile', isLoggedIn, function(req, res ){ //isLoggedIn함수는 로그인을 해야 profile.ejs가 보이도록 하기위해 사용.
-    res.render('profile', {user : req.user});
-});
-
-
-//로그아웃
-app.get('/logout', function(req, res){
-    req.logout(); //passport 모듈 에서 제공하는듯
-    res.redirect('/');
-});
-
-//로그인 했는지 확인하는 함수 정의
-function isLoggedIn(req, res, next){
-    //로그인 했으면
-    if(req.isAuthenticated())
-        return next();
-    res.redirect('/');
-}
-
-
-
-
-
-
-
 
 // 에러페이지
 app.use(function(req, res, next){
